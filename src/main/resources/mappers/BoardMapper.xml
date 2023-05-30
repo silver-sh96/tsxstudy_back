@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.tsxstudy_back.mapper.BoardMapper">
+    <resultMap type="Board" id="BoardResultMap">
+        <id column="board_num" property="boardNum" />
+        <result column="title" property="boardTitle" />
+        <result column="writer" property="boardWriter" />
+        <result column="contents" property="boardContents" />
+        <result column="attachment" property="boardAttach" />
+        <result column="reg_date" property="boardRegDate" javaType="java.sql.Date" />
+        <result column="mdf_date" property="boardMdfDate" javaType="java.sql.Date" />
+    </resultMap>
+
+	<select id="getBoardList" resultMap="BoardResultMap">
+        -- 게시글 목록
+		SELECT 
+            board_num, 
+            title, 
+            writer, 
+            contents, 
+            attachment, 
+            reg_date, 
+            mdf_date
+        FROM 
+            tb_board
+	</select>
+</mapper>
